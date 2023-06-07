@@ -9,136 +9,25 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    // MARK: Lifecycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
-    }
-    
-    // MARK: Setup View
-    
-    private func setupView() {
-        view.backgroundColor = .systemBackground
-        view.addSubviews(
-            greenView, greenLabel,
-            redView, redLabel,
-            yellowView, yellowLabel,
-            orangeView, orangeLabel,
-            titleLabel)
-        addConstraints()
-    }
-    
-    private func addConstraints() {
-        
-        greenView.pinToBounds(of: self.view)
-        
-        titleLabel.pinTo(view: greenView, top: 80,  centerX: 0)
-        
-        redView.pinTo(view: greenView, width: 280, height: 130, centerX: 0, centerY: 0)
-        redLabel.pinTo(view: redView, centerX: 0, centerY: 0)
-
-        yellowView.pinAbove(view: redView, height: 130, leading: 20, trailing: 20, bottom: 20)
-        yellowLabel.pinTo(view: yellowView, centerX: 0, centerY: 0)
-
-        orangeView.pinBelow(view: redView, height: 100, top: 20)
-        orangeLabel.pinTo(view: orangeView, centerX: 0, centerY: 0)
-        
-        greenLabel.pinTo(view: greenView, bottom: 80, centerX: 0)
-
-    }
-    
-    // MARK: Components
-
-    private let greenView: UIView = {
-        let view = UIView()
+    private let contentView: ContentView = {
+        let view = ContentView()
         view.backgroundColor = .green
         return view
     }()
     
-    private let greenLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Menlo", size: 14.0)
-        label.numberOfLines = 0
-        label.text = """
-        greenView.pinToBounds (
-            of: self.view
-        )
-        """
-        return label
-    }()
-    
-    private let redView: UIView = {
-        let view = UIView()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+    }
         
-        view.backgroundColor = .red
-        return view
-    }()
-    
-    private let redLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Menlo", size: 14.0)
-        label.numberOfLines = 0
-        label.text = """
-        redView.pinTo(
-            view: greenView,
-            width: 280,
-            height: 150,
-            centerX: 0,
-            centerY: 0
-        )
-        """
-        return label
-    }()
-    
-    private let yellowView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .yellow
-        return view
-    }()
-    
-    private let yellowLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Menlo", size: 14.0)
-        label.numberOfLines = 0
-        label.text = """
-        yellowView.pinAbove(
-            view: redView,
-            height: 150,
-            leading: 20,
-            trailing: 20,
-            bottom: 20
-        )
-        """
-        return label
-    }()
-    
-    private let orangeView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .orange
-        return view
-    }()
-    
-    private let orangeLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Menlo", size: 14.0)
-        label.numberOfLines = 0
-        label.text = """
-        orangeView.pinBelow(
-            view: redView,
-            height: 100,
-            top: 20
-        )
-        """
-        return label
-    }()
-    
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 28, weight: .bold)
-        label.numberOfLines = 0
-        label.text = "Easy Auto Layout"
-        return label
-    }()
+    private func setupView() {
+        view.backgroundColor = .systemBackground
+        view.addSubview(contentView)
+        addConstraints()
+    }
 
+    private func addConstraints() {
+        contentView.pinToBounds(of: self.view)
+    }
+    
 }
