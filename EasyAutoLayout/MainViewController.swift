@@ -9,15 +9,31 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    // MARK: MainViewController Lifecycle
+    // MARK: Components
+
+    private let containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .blue
+        return view
+    }()
+    
+    // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
     
+    // MARK: Setup View
+    
     private func setupView() {
-        // add views
+        view.backgroundColor = .systemBackground
+        view.addSubviews(containerView)
+        addConstraints()
+    }
+    
+    private func addConstraints() {
+        containerView.pinToBounds(of: self.view)
     }
 
 }
