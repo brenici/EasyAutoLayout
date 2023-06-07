@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     }
         
     private func setupView() {
+        title = "Easy Auto Layout"
         view.backgroundColor = .systemBackground
         view.addSubview(mainGreenView)
         addConstraints()

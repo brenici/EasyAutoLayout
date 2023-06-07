@@ -21,7 +21,7 @@ class OrangeView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = .orange
+        backgroundColor = .systemOrange
         orangeLabel.text = """
         orangeView.pinBelow(
             view: redView,
@@ -34,6 +34,7 @@ class OrangeView: UIView {
     }
     
     private func addConstraints() {
+        
         orangeLabel.pinTo(view: self, centerX: 0, centerY: 0)
     }
     

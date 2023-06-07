@@ -1,5 +1,5 @@
 //
-//  YellowView.swift
+//  BlueView.swift
 //  EasyAutoLayout
 //
 //  Created by Emilian Brenici on 07/06/2023.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class YellowView: UIView {
+class BlueView: UIView {
 
-    private let yellowLabel = CodeLabel()
+    private let label = CodeLabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,9 +21,9 @@ class YellowView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = .yellow
-        yellowLabel.text = """
-        yellowView.pinAbove(
+        backgroundColor = .systemBlue
+        label.text = """
+        blueView.pinAbove(
             view: redView,
             height: 150,
             leading: 20,
@@ -31,12 +31,12 @@ class YellowView: UIView {
             bottom: 20
         )
         """
-        self.addSubviews(yellowLabel)
+        self.addSubviews(label)
         addConstraints()
     }
     
     private func addConstraints() {
-        yellowLabel.pinTo(view: self, centerX: 0, centerY: 0)
+        label.pinTo(view: self, centerX: 0, centerY: 0)
     }
     
 }

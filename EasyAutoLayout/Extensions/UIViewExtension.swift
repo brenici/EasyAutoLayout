@@ -12,7 +12,7 @@ extension UIView {
     // MARK: View Constraints
     
     public func pinToBounds(
-        of view: UIView,
+        of view:  UIView,
         isSafeAreaLayoutGuide: Bool = false,
         leading:  CGFloat = 0,
         trailing: CGFloat = 0,
@@ -21,27 +21,16 @@ extension UIView {
     ) {
         translatesAutoresizingMaskIntoConstraints = isSafeAreaLayoutGuide
         let guide = view.safeAreaLayoutGuide
-        return NSLayoutConstraint.activate([
-            leadingAnchor.constraint(
-                equalTo: isSafeAreaLayoutGuide ? guide.leadingAnchor : view.leadingAnchor,
-                constant: leading
-            ),
-            trailingAnchor.constraint(
-                equalTo: isSafeAreaLayoutGuide ? guide.trailingAnchor : view.trailingAnchor,
-                constant: -trailing
-            ),
-            topAnchor.constraint(
-                equalTo: isSafeAreaLayoutGuide ? guide.topAnchor : view.topAnchor,
-                constant: top
-            ),
-            bottomAnchor.constraint(
-                equalTo: isSafeAreaLayoutGuide ? guide.bottomAnchor : view.bottomAnchor,
-                constant: -bottom)
+        NSLayoutConstraint.activate([
+            leadingAnchor.constraint(equalTo: isSafeAreaLayoutGuide ? guide.leadingAnchor : view.leadingAnchor, constant: leading),
+            trailingAnchor.constraint(equalTo: isSafeAreaLayoutGuide ? guide.trailingAnchor : view.trailingAnchor, constant: -trailing),
+            topAnchor.constraint(equalTo: isSafeAreaLayoutGuide ? guide.topAnchor : view.topAnchor, constant: top),
+            bottomAnchor.constraint(equalTo: isSafeAreaLayoutGuide ? guide.bottomAnchor : view.bottomAnchor, constant: -bottom)
         ])
     }
     
     public func pinTo(
-        view:  UIView,
+        view:     UIView,
         width:    CGFloat = .infinity,
         height:   CGFloat = .infinity,
         leading:  CGFloat = .infinity,
@@ -52,70 +41,48 @@ extension UIView {
         centerY:  CGFloat = .infinity
     ) {
         translatesAutoresizingMaskIntoConstraints = false
-        var constraints = [NSLayoutConstraint]()
-        if width != .infinity {
-            constraints.append(widthAnchor.constraint(equalToConstant: width))
-        }
-        if height != .infinity {
-            constraints.append(heightAnchor.constraint(equalToConstant: height))
-        }
-        if leading != .infinity {
-            constraints.append(leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leading))
-        }
-        if trailing != .infinity {
-            constraints.append(trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -trailing))
-        }
-        if top != .infinity {
-            constraints.append(topAnchor.constraint(equalTo: view.topAnchor, constant: top))
-        }
-        if bottom != .infinity {
-            constraints.append(bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -bottom))
-        }
-        if centerX != .infinity {
-            constraints.append(centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: centerX))
-        }
-        if centerY != .infinity {
-            constraints.append(centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: centerY))
-        }
-        NSLayoutConstraint.activate(constraints)
+        NSLayoutConstraint.activate([
+            width != .infinity ? widthAnchor.constraint(equalToConstant: width) : nil,
+            height != .infinity ? heightAnchor.constraint(equalToConstant: height) : nil,
+            leading != .infinity ? leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leading) : nil,
+            trailing != .infinity ? trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -trailing) : nil,
+            top != .infinity ? topAnchor.constraint(equalTo: view.topAnchor, constant: top) : nil,
+            bottom != .infinity ? bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -bottom) : nil,
+            centerX != .infinity ? centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: centerX) : nil,
+            centerY != .infinity ? centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: centerY) : nil
+        ].compactMap { $0 })
     }
     
     public func pinAbove(
-        view: UIView,
+        view:     UIView,
         height:   CGFloat = .infinity,
         leading:  CGFloat = 0,
         trailing: CGFloat = 0,
         bottom:   CGFloat = 0
     ) {
         translatesAutoresizingMaskIntoConstraints = false
-        var constraints = [
+        NSLayoutConstraint.activate([
             leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leading),
             trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -trailing),
-            bottomAnchor.constraint(equalTo: view.topAnchor, constant: -bottom)
-        ]
-        if height != .infinity {
-            constraints.append(heightAnchor.constraint(equalToConstant: height))
-        }
-        NSLayoutConstraint.activate(constraints)
+            bottomAnchor.constraint(equalTo: view.topAnchor, constant: -bottom),
+            height != .infinity ? heightAnchor.constraint(equalToConstant: height) : nil
+        ].compactMap { $0 })
     }
     
     public func pinBelow(
-        view: UIView,
+        view:     UIView,
         height:   CGFloat = .infinity,
         leading:  CGFloat = 0,
         trailing: CGFloat = 0,
         top:      CGFloat = 0
     ) {
         translatesAutoresizingMaskIntoConstraints = false
-        var constraints = [
+        NSLayoutConstraint.activate([
             leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leading),
             trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -trailing),
-            topAnchor.constraint(equalTo: view.bottomAnchor, constant: top)
-        ]
-        if height != .infinity {
-            constraints.append(heightAnchor.constraint(equalToConstant: height))
-        }
-        NSLayoutConstraint.activate(constraints)
+            topAnchor.constraint(equalTo: view.bottomAnchor, constant: top),
+            height != .infinity ? heightAnchor.constraint(equalToConstant: height) : nil
+        ].compactMap { $0 })
     }
     
     // MARK: - Add Subviews

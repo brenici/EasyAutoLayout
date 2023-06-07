@@ -14,6 +14,7 @@ class CodeLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         font = UIFont(name: "Menlo", size: 14.0)
+        textColor = .label
         numberOfLines = 0
     }
     

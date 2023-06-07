@@ -14,8 +14,9 @@
 		7A7C557B2A30D4A900911041 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7C557A2A30D4A900911041 /* Launch Screen.storyboard */; };
 		7A7C557D2A30EE1C00911041 /* MainGreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C557C2A30EE1C00911041 /* MainGreenView.swift */; };
 		7A7C55812A30F33800911041 /* RedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C55802A30F33800911041 /* RedView.swift */; };
-		7A7C55832A30F3EA00911041 /* YellowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C55822A30F3EA00911041 /* YellowView.swift */; };
+		7A7C55832A30F3EA00911041 /* BlueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C55822A30F3EA00911041 /* BlueView.swift */; };
 		7A7C55852A30F40700911041 /* OrangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C55842A30F40700911041 /* OrangeView.swift */; };
+		7A7C55872A30FA3F00911041 /* CodeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7C55862A30FA3F00911041 /* CodeLabel.swift */; };
 		7AC3C7812A30C5BA00FA1351 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC3C7802A30C5BA00FA1351 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,8 +30,9 @@
 		7A7C557A2A30D4A900911041 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		7A7C557C2A30EE1C00911041 /* MainGreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGreenView.swift; sourceTree = "<group>"; };
 		7A7C55802A30F33800911041 /* RedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedView.swift; sourceTree = "<group>"; };
-		7A7C55822A30F3EA00911041 /* YellowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowView.swift; sourceTree = "<group>"; };
+		7A7C55822A30F3EA00911041 /* BlueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueView.swift; sourceTree = "<group>"; };
 		7A7C55842A30F40700911041 /* OrangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeView.swift; sourceTree = "<group>"; };
+		7A7C55862A30FA3F00911041 /* CodeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeLabel.swift; sourceTree = "<group>"; };
 		7AC3C7802A30C5BA00FA1351 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,8 +91,9 @@
 			children = (
 				7A7C557C2A30EE1C00911041 /* MainGreenView.swift */,
 				7A7C55802A30F33800911041 /* RedView.swift */,
-				7A7C55822A30F3EA00911041 /* YellowView.swift */,
+				7A7C55822A30F3EA00911041 /* BlueView.swift */,
 				7A7C55842A30F40700911041 /* OrangeView.swift */,
+				7A7C55862A30FA3F00911041 /* CodeLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,9 +177,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A06CFD22A30BEE2005B34AD /* MainViewController.swift in Sources */,
+				7A7C55872A30FA3F00911041 /* CodeLabel.swift in Sources */,
 				7A7C557D2A30EE1C00911041 /* MainGreenView.swift in Sources */,
 				7A7C55852A30F40700911041 /* OrangeView.swift in Sources */,
-				7A7C55832A30F3EA00911041 /* YellowView.swift in Sources */,
+				7A7C55832A30F3EA00911041 /* BlueView.swift in Sources */,
 				7A7C55812A30F33800911041 /* RedView.swift in Sources */,
 				7A06CFCE2A30BEE2005B34AD /* AppDelegate.swift in Sources */,
 				7AC3C7812A30C5BA00FA1351 /* UIViewExtension.swift in Sources */,

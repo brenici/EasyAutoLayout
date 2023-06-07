@@ -21,7 +21,7 @@ class RedView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = .red
+        backgroundColor = .systemRed
         redLabel.text = """
         redView.pinTo(
             view: mainGreenView,
