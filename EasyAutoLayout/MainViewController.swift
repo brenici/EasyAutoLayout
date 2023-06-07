@@ -9,11 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    private let contentView: ContentView = {
-        let view = ContentView()
-        view.backgroundColor = .green
-        return view
-    }()
+    private let mainGreenView = MainGreenView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +18,12 @@ class MainViewController: UIViewController {
         
     private func setupView() {
         view.backgroundColor = .systemBackground
-        view.addSubview(contentView)
+        view.addSubview(mainGreenView)
         addConstraints()
     }
 
     private func addConstraints() {
-        contentView.pinToBounds(of: self.view)
+        mainGreenView.pinToBounds(of: self.view)
     }
     
 }
