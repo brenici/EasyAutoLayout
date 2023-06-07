@@ -7,6 +7,13 @@
 
 import UIKit
 
+public enum ViewSide {
+    case top
+    case bottom
+    case leading
+    case trailing
+}
+
 extension UIView {
     
     // MARK: View Constraints
@@ -53,68 +60,34 @@ extension UIView {
         ].compactMap { $0 })
     }
     
-    public func pinAbove(
-        view:     UIView,
+    public func pinTo(
+        side:     ViewSide,
+        of view:  UIView,
         height:   CGFloat = .infinity,
+        width:    CGFloat = .infinity,
+        top:      CGFloat = 0,
+        bottom:   CGFloat = 0,
         leading:  CGFloat = 0,
         trailing: CGFloat = 0,
         spacing:  CGFloat = 0
     ) {
         translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leading),
-            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -trailing),
-            bottomAnchor.constraint(equalTo: view.topAnchor, constant: -spacing),
-            height != .infinity ? heightAnchor.constraint(equalToConstant: height) : nil
-        ].compactMap { $0 })
-    }
-    
-    public func pinBelow(
-        view:     UIView,
-        height:   CGFloat = .infinity,
-        leading:  CGFloat = 0,
-        trailing: CGFloat = 0,
-        spacing:  CGFloat = 0
-    ) {
-        translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leading),
-            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -trailing),
-            topAnchor.constraint(equalTo: view.bottomAnchor, constant: spacing),
-            height != .infinity ? heightAnchor.constraint(equalToConstant: height) : nil
-        ].compactMap { $0 })
-    }
-    
-    public func pinLeading(
-        view:     UIView,
-        width:    CGFloat = .infinity,
-        top:      CGFloat = 0,
-        bottom:   CGFloat = 0,
-        spacing:  CGFloat = 0
-    ) {
-        translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            topAnchor.constraint(equalTo: view.topAnchor, constant: top),
-            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -bottom),
-            trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: -spacing),
-            width != .infinity ? widthAnchor.constraint(equalToConstant: width) : nil
-        ].compactMap { $0 })
-    }
-    
-    public func pinTrailing(
-        view:     UIView,
-        width:    CGFloat = .infinity,
-        top:      CGFloat = 0,
-        bottom:   CGFloat = 0,
-        spacing:  CGFloat = 0
-    ) {
-        translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            topAnchor.constraint(equalTo: view.topAnchor, constant: top),
-            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -bottom),
-            leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: spacing),
-            width != .infinity ? widthAnchor.constraint(equalToConstant: width) : nil
-        ].compactMap { $0 })
+        switch side {
+            case .top, .bottom:
+                NSLayoutConstraint.activate([
+                    leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leading),
+                    trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -trailing),
+                    heightAnchor.constraint(equalToConstant: height != .infinity ? height : view.frame.height),
+                    side == .top ? bottomAnchor.constraint(equalTo: view.topAnchor, constant: -spacing) : topAnchor.constraint(equalTo: view.bottomAnchor, constant: spacing)
+                ].compactMap { $0 })
+            case .leading, .trailing:
+                NSLayoutConstraint.activate([
+                    topAnchor.constraint(equalTo: view.topAnchor, constant: top),
+                    bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -bottom),
+                    widthAnchor.constraint(equalToConstant: width != .infinity ? width : view.frame.width),
+                    side == .leading ? trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: -spacing) : leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: spacing)
+                ].compactMap { $0 })
+        }
     }
     
     // MARK: - Add Multiple Subviews
