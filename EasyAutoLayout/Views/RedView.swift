@@ -26,7 +26,7 @@ class RedView: UIView {
         redView.pinTo(
             view: mainGreenView,
             width: 280,
-            height: 150,
+            height: 140,
             centerX: 0,
             centerY: 0
         )

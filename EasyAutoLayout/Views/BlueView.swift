@@ -23,12 +23,11 @@ class BlueView: UIView {
     private func setupView() {
         backgroundColor = .systemBlue
         label.text = """
-        blueView.pinAbove(
-            view: redView,
-            height: 150,
-            leading: 20,
-            trailing: 20,
-            bottom: 20
+        blueView.pinTo(
+            side: .top,
+            of: redView,
+            height: 120,
+            spacing: 20
         )
         """
         self.addSubviews(label)

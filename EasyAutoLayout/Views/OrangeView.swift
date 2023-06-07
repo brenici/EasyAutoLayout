@@ -23,10 +23,11 @@ class OrangeView: UIView {
     private func setupView() {
         backgroundColor = .systemOrange
         orangeLabel.text = """
-        orangeView.pinBelow(
-            view: redView,
-            height: 100,
-            top: 20
+        orangeView.pinTo(
+            side: .bottom,
+            of: redView,
+            height: 120,
+            spacing: 20
         )
         """
         self.addSubviews(orangeLabel)
