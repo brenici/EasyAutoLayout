@@ -9,25 +9,7 @@ import UIKit
 
 class RedView: UIView {
 
-    // MARK: Components
-    
-    private let redLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Menlo", size: 14.0)
-        label.numberOfLines = 0
-        label.text = """
-        redView.pinTo(
-            view: mainGreenView,
-            width: 280,
-            height: 150,
-            centerX: 0,
-            centerY: 0
-        )
-        """
-        return label
-    }()
-    
-    // MARK: Init
+    private let redLabel = CodeLabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,10 +20,17 @@ class RedView: UIView {
         fatalError("not implemented")
     }
     
-    // MARK: Setup view
-    
     private func setupView() {
         backgroundColor = .red
+        redLabel.text = """
+        redView.pinTo(
+            view: mainGreenView,
+            width: 280,
+            height: 150,
+            centerX: 0,
+            centerY: 0
+        )
+        """
         self.addSubviews(redLabel)
         addConstraints()
     }

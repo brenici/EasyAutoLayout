@@ -9,23 +9,7 @@ import UIKit
 
 class OrangeView: UIView {
 
-    // MARK: Components
-    
-    private let orangeLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Menlo", size: 14.0)
-        label.numberOfLines = 0
-        label.text = """
-        orangeView.pinBelow(
-            view: redView,
-            height: 100,
-            top: 20
-        )
-        """
-        return label
-    }()
-    
-    // MARK: Init
+    private let orangeLabel = CodeLabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,10 +20,15 @@ class OrangeView: UIView {
         fatalError("not implemented")
     }
     
-    // MARK: Setup view
-    
     private func setupView() {
         backgroundColor = .orange
+        orangeLabel.text = """
+        orangeView.pinBelow(
+            view: redView,
+            height: 100,
+            top: 20
+        )
+        """
         self.addSubviews(orangeLabel)
         addConstraints()
     }

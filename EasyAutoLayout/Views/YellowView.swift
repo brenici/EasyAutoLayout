@@ -9,24 +9,7 @@ import UIKit
 
 class YellowView: UIView {
 
-    // MARK: Components
-    private let yellowLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Menlo", size: 14.0)
-        label.numberOfLines = 0
-        label.text = """
-        yellowView.pinAbove(
-            view: redView,
-            height: 150,
-            leading: 20,
-            trailing: 20,
-            bottom: 20
-        )
-        """
-        return label
-    }()
-
-    // MARK: Init
+    private let yellowLabel = CodeLabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,10 +20,17 @@ class YellowView: UIView {
         fatalError("not implemented")
     }
     
-    // MARK: Setup view
-    
     private func setupView() {
         backgroundColor = .yellow
+        yellowLabel.text = """
+        yellowView.pinAbove(
+            view: redView,
+            height: 150,
+            leading: 20,
+            trailing: 20,
+            bottom: 20
+        )
+        """
         self.addSubviews(yellowLabel)
         addConstraints()
     }

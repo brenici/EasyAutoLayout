@@ -22,18 +22,7 @@ class MainGreenView: UIView {
     private let redView = RedView()
     private let yellowView = YellowView()
     private let orangeView = OrangeView()
-    
-    private let greenViewLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Menlo", size: 14.0)
-        label.numberOfLines = 0
-        label.text = """
-        mainGreenView.pinToBounds (
-            of: self.view
-        )
-        """
-        return label
-    }()
+    private let greenViewLabel = CodeLabel()
     
     // MARK: Init
     
@@ -50,6 +39,11 @@ class MainGreenView: UIView {
     
     private func setupView() {
         backgroundColor = .green
+        greenViewLabel.text = """
+        "mainGreenView.pinToBounds (
+            of: self.view
+        )
+        """
         self.addSubviews(titleLabel, redView, yellowView, orangeView, greenViewLabel)
         addConstraints()
     }
