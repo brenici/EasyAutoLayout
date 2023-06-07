@@ -11,7 +11,8 @@ extension UIView {
     
     // MARK: View Constraints
     
-    public func pinToBounds( of view: UIView,
+    public func pinToBounds(
+        of view: UIView,
         isSafeAreaLayoutGuide: Bool = false,
         leading:  CGFloat = 0,
         trailing: CGFloat = 0,
@@ -39,7 +40,8 @@ extension UIView {
         ])
     }
     
-    public func pinTo( view:  UIView,
+    public func pinTo(
+        view:  UIView,
         width:    CGFloat = .infinity,
         height:   CGFloat = .infinity,
         leading:  CGFloat = .infinity,
@@ -74,6 +76,44 @@ extension UIView {
         }
         if centerY != .infinity {
             constraints.append(centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: centerY))
+        }
+        NSLayoutConstraint.activate(constraints)
+    }
+    
+    public func pinAbove(
+        view: UIView,
+        height:   CGFloat = .infinity,
+        leading:  CGFloat = 0,
+        trailing: CGFloat = 0,
+        bottom:   CGFloat = 0
+    ) {
+        translatesAutoresizingMaskIntoConstraints = false
+        var constraints = [
+            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leading),
+            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -trailing),
+            bottomAnchor.constraint(equalTo: view.topAnchor, constant: -bottom)
+        ]
+        if height != .infinity {
+            constraints.append(heightAnchor.constraint(equalToConstant: height))
+        }
+        NSLayoutConstraint.activate(constraints)
+    }
+    
+    public func pinBelow(
+        view: UIView,
+        height:   CGFloat = .infinity,
+        leading:  CGFloat = 0,
+        trailing: CGFloat = 0,
+        top:      CGFloat = 0
+    ) {
+        translatesAutoresizingMaskIntoConstraints = false
+        var constraints = [
+            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leading),
+            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -trailing),
+            topAnchor.constraint(equalTo: view.bottomAnchor, constant: top)
+        ]
+        if height != .infinity {
+            constraints.append(heightAnchor.constraint(equalToConstant: height))
         }
         NSLayoutConstraint.activate(constraints)
     }
