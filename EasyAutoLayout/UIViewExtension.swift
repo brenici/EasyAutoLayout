@@ -11,7 +11,7 @@ extension UIView {
     
     // MARK: View Constraints
     
-    public func pinToBounds(of view: UIView,
+    public func pinToBounds( of view: UIView,
         isSafeAreaLayoutGuide: Bool = false,
         leading:  CGFloat = 0,
         trailing: CGFloat = 0,
@@ -37,6 +37,45 @@ extension UIView {
                 equalTo: isSafeAreaLayoutGuide ? guide.bottomAnchor : view.bottomAnchor,
                 constant: -bottom)
         ])
+    }
+    
+    public func pinTo( view:  UIView,
+        width:    CGFloat = .infinity,
+        height:   CGFloat = .infinity,
+        leading:  CGFloat = .infinity,
+        trailing: CGFloat = .infinity,
+        top:      CGFloat = .infinity,
+        bottom:   CGFloat = .infinity,
+        centerX:  CGFloat = .infinity,
+        centerY:  CGFloat = .infinity
+    ) {
+        translatesAutoresizingMaskIntoConstraints = false
+        var constraints = [NSLayoutConstraint]()
+        if width != .infinity {
+            constraints.append(widthAnchor.constraint(equalToConstant: width))
+        }
+        if height != .infinity {
+            constraints.append(heightAnchor.constraint(equalToConstant: height))
+        }
+        if leading != .infinity {
+            constraints.append(leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leading))
+        }
+        if trailing != .infinity {
+            constraints.append(trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -trailing))
+        }
+        if top != .infinity {
+            constraints.append(topAnchor.constraint(equalTo: view.topAnchor, constant: top))
+        }
+        if bottom != .infinity {
+            constraints.append(bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -bottom))
+        }
+        if centerX != .infinity {
+            constraints.append(centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: centerX))
+        }
+        if centerY != .infinity {
+            constraints.append(centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: centerY))
+        }
+        NSLayoutConstraint.activate(constraints)
     }
     
     // MARK: - Add Subviews

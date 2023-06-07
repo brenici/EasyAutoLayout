@@ -17,6 +17,12 @@ class MainViewController: UIViewController {
         return view
     }()
     
+    private let redSquareView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        return view
+    }()
+    
     // MARK: Lifecycle
 
     override func viewDidLoad() {
@@ -28,12 +34,13 @@ class MainViewController: UIViewController {
     
     private func setupView() {
         view.backgroundColor = .systemBackground
-        view.addSubviews(containerView)
+        view.addSubviews(containerView, redSquareView)
         addConstraints()
     }
     
     private func addConstraints() {
         containerView.pinToBounds(of: self.view)
+        redSquareView.pinTo(view: containerView, width: 200, height: 200, centerX: 0, centerY: 0)
     }
 
 }
