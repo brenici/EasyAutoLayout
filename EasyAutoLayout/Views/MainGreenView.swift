@@ -36,8 +36,10 @@ class MainGreenView: UIView {
     
     private func addConstraints() {
         redView.pinTo(view: self, width: 280, height: 130, centerX: 0, centerY: 0)
-        blueView.pinAbove(view: redView, height: 130, leading: 20, trailing: 20, bottom: 20)
-        orangeView.pinBelow(view: redView, height: 100, top: 20)
+        blueView.pinAbove(view: redView, height: 130, leading: 20, trailing: 20, spacing: 20)
+//        blueView.pinTrailing(view: redView, width: 280, spacing: 20)
+//        blueView.pinLeading(view: redView, width: 280, spacing: 20)
+        orangeView.pinBelow(view: redView, height: 100, spacing: 20)
         greenViewLabel.pinTo(view: self, bottom: 80, centerX: 0)
     }
     
