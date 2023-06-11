@@ -5,7 +5,7 @@ UIKit Programmatic Constraints. Simplified!
 
 This repository contains Swift extensions for the `UIView` class, providing developers with the capability to effortlessly implement programmatic view layouts and write concise constraint code.
 
-![Preview_EasyAutoLayout](https://github.com/brenici/EasyAutoLayout/assets/18484454/6e1342c1-d165-4d7a-a650-273525a4a9b2)
+![Preview_Easy-Auto-Layout](https://github.com/brenici/EasyAutoLayout/assets/18484454/0fe02fde-d665-468a-a8a0-e90dce99a0d4)
 
 ## Features
 
