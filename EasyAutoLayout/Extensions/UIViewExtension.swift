@@ -26,7 +26,7 @@ extension UIView {
         top:      CGFloat = 0,
         bottom:   CGFloat = 0
     ) {
-        translatesAutoresizingMaskIntoConstraints = isSafeAreaLayoutGuide
+        translatesAutoresizingMaskIntoConstraints = false
         let guide = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             leadingAnchor.constraint(equalTo: isSafeAreaLayoutGuide ? guide.leadingAnchor : view.leadingAnchor, constant: leading),
